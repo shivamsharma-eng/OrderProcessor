@@ -34,7 +34,7 @@ public class OrderProcessor {
      */
     public OrderProcessor() {
         this.inputFile = "orders/Orders.txt";
-        this.outputFile = "orders/FinalData.txt";
+        this.outputFile = "orders/OrdersProcessed.txt";
     }
     
     /**
@@ -132,7 +132,14 @@ public class OrderProcessor {
                 }
                 else
                 {
-                    myWriter.println("OrderID:" + "    " + allValues[i]); 
+                    if(allValues[i].equals(""))
+                    {  
+                    }
+                    else
+                    {
+                        myWriter.println("OrderID:" + "    " + allValues[i]);  
+                    }
+                    
                 }  
             }
             

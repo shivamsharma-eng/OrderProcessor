@@ -8,7 +8,7 @@ public class OrderProcessing {
     public static void main(String[] args) {
         
         //makes a new processor object
-        OrderProcessor myProcessor = new OrderProcessor();
+        OrderProcessor myProcessor = new OrderProcessor("orders/Orders.txt", "orders/OrdersProcessed.txt");
         //opens file
         myProcessor.Open();
         //Reads the first line so it'll be skipped later on
