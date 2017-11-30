@@ -8,11 +8,15 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
 
 
 
 public class OrderProcessor {
     
+    NumberFormat formatter = new DecimalFormat("#0.0000");
     private BufferedReader myReader = null;
     private PrintWriter myWriter = null;
     private final double shippingRate = .05;
@@ -66,40 +70,45 @@ public class OrderProcessor {
         while(Read() != null){
            
             String[] allValues = inputs.split("\\|");
-            Double[] Tax = new Double[6];
-            Double[] Shipping = new Double[6];
-            Double[] Total = new Double[6];
+            ArrayList<Double> quantity = new ArrayList<>();
+            ArrayList<Double> price = new ArrayList<>();
             
             for(int i = 0; i < allValues.length; i++)
             {
                 if((i % 4 != 0) && (i % 3 != 0) && (i % 2 != 0))
                 {
-                    myWriter.println("OrderID:" + "    " + allValues[i]);
+                    myWriter.println("PartNum:" + "    " + allValues[i]);
                 }
                 else if((i % 4 != 0) && (i % 3 != 0))
                 {
-                    for(int x = 0; x < Tax.length; x++)
-                    {
-                        Tax[x] = Double.parseDouble(allValues[i]) * taxRate;
-                        Shipping[x] = Double.parseDouble(allValues[i]) * shippingRate;
-                        Total[x] = Tax[x] + Shipping[x] + Double.parseDouble(allValues[i]);
-                    }
                     
-                    myWriter.println("Price:" + "    " + allValues[i]);
+                    price.add(Double.parseDouble(allValues[i]));
+                    myWriter.println("Price:" + "      " + allValues[i]);
                 }
                 else if(i % 4 != 0)
                 {
-                    myWriter.println("PartNum:" + "    " + allValues[i]);
+                    
+                    quantity.add(Double.parseDouble(allValues[i]));
+                    myWriter.println("Quantity:" + "   " + allValues[i]);
                 }
                 else
                 {
-                    myWriter.println("Quantity:" + "    " + allValues[i]);
-                }   
-                
+                    myWriter.println("OrderID:" + "    " + allValues[i]);
+                }  
             }
             
-            myWriter.println("- - - - - - - - - -");
-            
+            for(int x = 0; x < price.size(); x++)
+            {
+                Double startingPrice = (price.get(x) * quantity.get(x));
+                Double tax =  startingPrice * taxRate;
+                Double shipping = startingPrice * shippingRate;
+                Double totalPrice = startingPrice + tax + shipping;
+                
+                myWriter.println("Tax:" + "        " + formatter.format(tax));
+                myWriter.println("Shipping:" + "   " + formatter.format(shipping));
+                myWriter.println("Total:" + "      " + (formatter.format(totalPrice)));
+                myWriter.println("- - - - - - - - - -");
+            }
         }
     }
     

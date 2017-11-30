@@ -1,32 +1,49 @@
-Quantity:    1
 OrderID:    1
-Price:    1
 PartNum:    1
+Price:      1
+Quantity:   1
+Tax:        0.0200
+Shipping:   0.0500
+Total:      1.0700
 - - - - - - - - - -
-Quantity:    9872
-OrderID:    MFT_903
-Price:    4.99
-PartNum:    1
+OrderID:    9872
+PartNum:    MFT_903
+Price:      4.99
+Quantity:   1
+Tax:        0.0998
+Shipping:   0.2495
+Total:      5.3393
 - - - - - - - - - -
-Quantity:    2342
-OrderID:    1900
-Price:    3.50
-PartNum:    4
+OrderID:    2342
+PartNum:    1900
+Price:      3.50
+Quantity:   4
+Tax:        0.2800
+Shipping:   0.7000
+Total:      14.9800
 - - - - - - - - - -
-Quantity:    9122
-OrderID:    ACT_MIT
-Price:    57.95
-PartNum:    2
+OrderID:    9122
+PartNum:    ACT_MIT
+Price:      57.95
+Quantity:   2
+Tax:        2.3180
+Shipping:   5.7950
+Total:      124.0130
 - - - - - - - - - -
-Quantity:    ORD123
-OrderID:    112235
-Price:    0.99
-PartNum:    25
+OrderID:    ORD123
+PartNum:    112235
+Price:      0.99
+Quantity:   25
+Tax:        0.4950
+Shipping:   1.2375
+Total:      26.4825
 - - - - - - - - - -
-Quantity:    0982
-OrderID:    FRM_102_221
-Price:    99.99
-PartNum:    1
+OrderID:    0982
+PartNum:    FRM_102_221
+Price:      99.99
+Quantity:   1
+Tax:        1.9998
+Shipping:   4.9995
+Total:      106.9893
 - - - - - - - - - -
-Quantity:    
-- - - - - - - - - -
+OrderID:    
